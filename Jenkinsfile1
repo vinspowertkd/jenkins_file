@@ -8,6 +8,7 @@ pipeline{
                 date
                 uptime
                 '''
+                slackSend channel: 'jenkins', message: 'job has been sarted!!!!!!!!!!!!!!!'
             }
             post{
                 always{
@@ -28,9 +29,11 @@ pipeline{
         }
         success{
             echo "========pipeline executed successfully ========"
+            slackSend channel: 'jenkins', message: 'job has been suceeded!!!!!!!!!!!!!!!'
         }
         failure{
             echo "========pipeline execution failed========"
+            slackSend channel: 'jenkins', message: 'job has been failed!!!!!!!!!!!!!!!'
         }
     }
 }
